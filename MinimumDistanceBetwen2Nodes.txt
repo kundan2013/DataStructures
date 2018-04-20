@@ -1,0 +1,49 @@
+class GfG
+{   
+    Node getLCA(Node root, int n1, int n2){
+        if(root == null){
+            return null;
+        }
+        
+        if(root.data == n1 || root.data == n2){
+            return root;
+        }
+        
+        Node left = getLCA(root.left, n1, n2);
+        Node right = getLCA(root.right, n1, n2);
+        if(left != null && right != null){
+            return root;
+        }else if(left != null){
+            return left;
+        }else{
+            return right;
+        }
+    }
+    
+ int getPathLen(Node root, int x)
+{
+    // Base case
+    if (root == null)
+      return -1;
+ 
+    // Initialize distance
+    int dist = -1;
+ 
+    // Check if x is present at root or in left
+    // subtree or right subtree.
+    if ((root.data == x) ||
+        (dist = getPathLen(root.left, x)) >= 0 ||
+        (dist = getPathLen(root.right, x)) >= 0)
+        return dist + 1;
+ 
+    return dist;
+}
+    
+    int findDist(Node root, int a, int b)
+    {
+        Node LCA = getLCA(root, a, b);
+        int path1 = getPathLen(LCA, a);
+        int path2 = getPathLen(LCA, b);
+        return path1 + path2;
+    }
+}
