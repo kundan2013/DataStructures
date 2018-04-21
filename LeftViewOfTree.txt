@@ -1,0 +1,39 @@
+class GfG
+{
+    void leftView(Node root)
+    {
+      if(root == null){
+          return;
+      }
+      
+      Queue<Node> queue = new LinkedList<>();
+      queue.add(null);
+      queue.add(root);
+      while(!queue.isEmpty()){
+          Node temp = queue.poll();
+          if(temp == null){
+              queue.add(null);
+              Node temp2 = queue.poll();
+              if(temp2 == null){
+                  break;
+              }
+              System.out.print(temp2.data + " ");
+              if(temp2.left != null){
+                  queue.add(temp2.left);
+              }
+              
+              if(temp2.right != null){
+                  queue.add(temp2.right);
+              }
+          }else{
+              if(temp.left != null){
+                  queue.add(temp.left);
+              }
+              
+              if(temp.right != null){
+                  queue.add(temp.right);
+              }
+          }
+      }
+    }
+}
