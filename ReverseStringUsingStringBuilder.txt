@@ -1,0 +1,19 @@
+class GFG {
+	public static void main (String[] args) {
+		Scanner sc = new Scanner(System.in);
+		int t = sc.nextInt();
+		while(t-- > 0){
+		  //  String input = sc.next();
+		    StringBuilder sb = new StringBuilder();
+		    sb.append(sc.next());
+		    int i, j;
+		    for(i=0, j=sb.length()-1; i<j; i++, j--){
+		        char ch = sb.charAt(i);
+		        sb.setCharAt(i, sb.charAt(j));
+		        sb.setCharAt(j, ch);
+		    }
+		  //System.out.println(sb.reverse()); // one line solution
+		  System.out.println(sb);
+		}
+	}
+}
