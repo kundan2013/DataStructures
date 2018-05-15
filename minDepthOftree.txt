@@ -1,0 +1,23 @@
+class GfG
+{
+    // int level = 0;
+    int minDepth(Node root)
+    {   int level = 0;
+        if(root == null){
+            return level;
+        }
+        
+        level++;
+        if(root.left == null && root.right == null){
+            return level;
+        }
+        
+        
+       int leftmin = minDepth(root.left);
+       int rightmin = minDepth(root.right);
+        
+        return (level + Math.min(leftmin, rightmin));
+        
+        
+    }
+}
